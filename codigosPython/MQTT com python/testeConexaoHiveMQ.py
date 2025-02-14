@@ -15,13 +15,11 @@ def on_subscribe(client, userdata, mid, granted_qos, properties=None):
     print("Subscribed: " + str(mid) + " " + str(granted_qos))
 
 # Imprime a menssagem, o tópico e o payload, usado para verificar se foi enviada
-# print message, useful for checking if it was successful
+
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
 
 # using MQTT version 5 here, for 3.1.1: MQTTv311, 3.1: MQTTv31
-# userdata is user defined data of any type, updated by user_data_set()
-# client_id is the given name of the client
 
 # Característica do MQTT 5
 client = paho.Client(client_id="", userdata=None, protocol=paho.MQTTv5) 
@@ -40,7 +38,6 @@ client.on_message = on_message
 client.on_publish = on_publish
 
 #Para se inscrever em todos os tópicos filhos de um tópico mãe se usa #
-# subscribe to all topics of encyclopedia by using the wildcard "#"
 
 # Se inscreve no tópico "ola"
 client.subscribe("ola", qos=1)
