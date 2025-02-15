@@ -1,6 +1,6 @@
-import time
 import paho.mqtt.client as paho
 from paho import mqtt
+from time import sleep
 
 # Configuração dos Callbacks para diferentes eventos, se funcionar exibe uma menssagem
 def on_connect(client, userdata, flags, rc, properties=None):
@@ -27,7 +27,7 @@ client.on_connect = on_connect
 
 # Ativa o TLS para a segurança
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
-# Configura i Username e a Senha
+# Configura o Username e a Senha
 client.username_pw_set("JotaPe", "27724991Jp!")
 # Conecta a URL do Cluster e a porta padrão 8883
 client.connect("f5676352a6d24d37b55cdd9d249f3c6f.s1.eu.hivemq.cloud", 8883)
@@ -43,7 +43,10 @@ client.on_publish = on_publish
 client.subscribe("ola", qos=1)
 
 # Uma públicação unica no tópico "ola" com a menssagem e com o QoS .publish("tópico", payload="Menssagem", qos="Método de segurança")
-client.publish("ola", payload="Ola Mundo, agora do Python", qos=1)
+# Terminal do publisher
+while True:
+    client.publish("ola", payload="Ola Mundo, agora do Python", qos=1)
+    sleep(3)
 
 
 client.loop_forever() # Esse loop serve para facilitar a reprodução do código

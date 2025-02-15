@@ -27,8 +27,3 @@ def cripto(string="", selecao=0):
             desCripto.append(alfaInvert[x])
 
         return "".join(desCripto)
-
-print(cripto("JotaPe").capitalize())
-
-
-
