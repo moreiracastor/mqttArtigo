@@ -47,8 +47,9 @@ client.subscribe("ola", qos=0)
 print("Começando o loop")
 
 while True:
-    client.publish("ola", payload="Ola Mundo, agora do Python", qos=1)
+    client.publish("msgCriptografada", payload="Ola Mundo, agora do Python", qos=1)
     sleep(10)
+
 
 client.loop_forever() # Esse loop serve para facilitar a reprodução do código
                       # Poderia ser substiuido por loop_start e o loop_stop
