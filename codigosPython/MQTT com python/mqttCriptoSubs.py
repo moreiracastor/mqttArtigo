@@ -1,7 +1,6 @@
 # Subscriber criptografado 
 
 import paho.mqtt.client as paho
-import paho.mqtt.subscribe as subscribe
 from paho import mqtt
 
 def on_connect(client, userdata, flags, rc, properties=None):
@@ -11,7 +10,7 @@ def on_subscribe(client, userdata, mid, granted_qos, properties=None):
     print(f"Inscrito: {str(mid)}, {str(granted_qos)} ")
 
 def on_message(client, userdata, msg):
-    print(f"Mensagem recebida no tópico {msg.topic}: {msg.payload.decode()}")
+    print(f"Tópico: {msg.topic}\nMenssagem : {msg.payload.decode()}\n")
 
 # ------------- Conexão padrão -------------
 cliente = paho.Client(client_id="", userdata=None, protocol=paho.MQTTv5)
@@ -21,7 +20,6 @@ cliente.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 
 cliente.username_pw_set("Subscriber", "27724991Jp!") 
 cliente.connect("f5676352a6d24d37b55cdd9d249f3c6f.s1.eu.hivemq.cloud", 8883)
-cliente.on_message = on_message
 
 
 # ------------- Subscriber -------------

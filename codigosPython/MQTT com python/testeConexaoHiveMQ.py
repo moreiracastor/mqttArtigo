@@ -40,14 +40,15 @@ client.on_publish = on_publish
 #Para se inscrever em todos os tópicos filhos de um tópico mãe se usa #
 
 # Se inscreve no tópico "ola"
-client.subscribe("ola", qos=1)
+client.subscribe("ola", qos=0)
 
 # Uma públicação unica no tópico "ola" com a menssagem e com o QoS .publish("tópico", payload="Menssagem", qos="Método de segurança")
 # Terminal do publisher
+print("Começando o loop")
+
 while True:
     client.publish("ola", payload="Ola Mundo, agora do Python", qos=1)
-    sleep(3)
-
+    sleep(10)
 
 client.loop_forever() # Esse loop serve para facilitar a reprodução do código
                       # Poderia ser substiuido por loop_start e o loop_stop
