@@ -26,7 +26,7 @@ client = paho.Client(client_id="", userdata=None, protocol=paho.MQTTv5)
 client.on_connect = on_connect
 
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
-client.username_pw_set("Publisher", "27724991Jp!")
+client.username_pw_set("Publisher", "12341234")
 client.connect("f5676352a6d24d37b55cdd9d249f3c6f.s1.eu.hivemq.cloud", 8883)
 
 print("Terminal do Publisher")

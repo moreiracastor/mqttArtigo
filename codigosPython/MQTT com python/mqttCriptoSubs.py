@@ -25,7 +25,7 @@ cliente.on_connect = on_connect
 
 cliente.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
 
-cliente.username_pw_set("Subscriber", "27724991Jp!") 
+cliente.username_pw_set("Subscriber", "12341234") 
 cliente.connect("f5676352a6d24d37b55cdd9d249f3c6f.s1.eu.hivemq.cloud", 8883)
 
 
